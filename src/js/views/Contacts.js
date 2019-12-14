@@ -9,7 +9,7 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false
 	});
-	const { store, actions } = useContext(Consumer);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container">
@@ -21,10 +21,10 @@ export const Contacts = () => {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.contacts.map((item, index) => {
+						{store.contacts.map(item => {
 							return (
 								<ContactCard
-									key={index}
+									key={item.id}
 									full_name={item.full_name}
 									address={item.address}
 									phone={item.phone}
