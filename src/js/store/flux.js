@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			//addContact(),
 			deleteContact: id => {
-				let url = "https://assets.breatheco.de/apis/fake/contact/{store.contacts/" + id;
+				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				let promis = fetch(url, {
 					method: "DELETE"
 				});
