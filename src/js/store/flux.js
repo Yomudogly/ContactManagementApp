@@ -1,4 +1,4 @@
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			contacts: []
@@ -6,16 +6,30 @@ const getState = ({ getStore, setStore }) => {
 		},
 		actions: {
 			//addContact(),
-			//deleteContact(),
-			loadContact: () => {
+			deleteContact: id => {
+				const store = getStore();
+				let url = "https://assets.breatheco.de/apis/fake/contact/{store.contacts/" + id;
+				let promis = fetch(url, {
+					method: "DELETE"
+				});
+				promis.then();
+
+				//.then(getActions().loadContacts());
+			},
+			loadContacts: () => {
 				let url = "https://assets.breatheco.de/apis/fake/contact/agenda/downtown_xii";
 				let promis = fetch(url).then(response => response.json());
-				promis.then(results => {
-					setStore({
-						...setStore,
-						contacts: results
-					});
-				});
+				promis
+					.then(results => {
+						setStore({
+							...setStore,
+							contacts: results
+						});
+					})
+					.catch(error =>
+						//error handling
+						console.log("Looks like there was a problem: \n", error)
+					);
 			}
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()
