@@ -7,7 +7,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			//addContact(),
 			deleteContact: id => {
-				const store = getStore();
 				let url = "https://assets.breatheco.de/apis/fake/contact/{store.contacts/" + id;
 				let promis = fetch(url, {
 					method: "DELETE"
@@ -22,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				promis
 					.then(results => {
 						setStore({
-							...setStore,
+							...getStore,
 							contacts: results
 						});
 					})
