@@ -30,8 +30,6 @@ export const Contacts = () => {
 									email={item.email}
 									onDelete={() => setState({ showModal: true })}
 								/>
-
-								//<ContactCard id={index} onDelete={() => setState({ showModal: true })} />
 							);
 						})}
 					</ul>
