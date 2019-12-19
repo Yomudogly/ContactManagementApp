@@ -21,7 +21,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 					headers: {
 						"Content-Type": "application/json"
 					}
-				})
+				});
+				promis
 					.then(response => {
 						return response.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
 					})
@@ -41,7 +42,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				let promis = fetch(url, {
 					method: "DELETE"
-				}).then(() => {
+				});
+				promis.then(() => {
 					getActions().loadContacts();
 				});
 			},
