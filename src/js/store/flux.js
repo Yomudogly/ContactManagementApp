@@ -26,7 +26,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
 					})
 					.then(list => console.log("Success:", JSON.stringify(list)))
-
+					.then(() => {
+						getActions().loadContacts();
+					})
 					.then(() => {
 						history.push("/contacts");
 					})
