@@ -7,7 +7,8 @@ import PropTypes from "prop-types";
 
 export const Contacts = props => {
 	const [state, setState] = useState({
-		showModal: false
+		showModal: false,
+		id: ""
 	});
 	const { store, actions } = useContext(Context);
 
@@ -29,7 +30,7 @@ export const Contacts = props => {
 										address={item.address}
 										phone={item.phone}
 										email={item.email}
-										onDelete={() => setState({ showModal: true })}
+										onDelete={() => setState({ showModal: true, id: item.id })}
 									/>
 								</div>
 							);
@@ -37,7 +38,7 @@ export const Contacts = props => {
 					</ul>
 				</div>
 			</div>
-			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} itemId={123} />
+			<Modal itemId={state.id} show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };

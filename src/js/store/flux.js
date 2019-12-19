@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			contacts: []
@@ -10,10 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				let promis = fetch(url, {
 					method: "DELETE"
+				}).then(() => {
+					getActions().loadContacts();
 				});
-				promis.then();
-
-				//.then(getActions().loadContacts());
 			},
 			loadContacts: () => {
 				let url = "https://assets.breatheco.de/apis/fake/contact/agenda/downtown_xii";

@@ -59,7 +59,8 @@ ContactCard.propTypes = {
 	full_name: PropTypes.string,
 	address: PropTypes.string,
 	phone: PropTypes.string,
-	email: PropTypes.string
+	email: PropTypes.string,
+	id: PropTypes.string
 };
 
 /**
