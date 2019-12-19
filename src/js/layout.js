@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+import history from "./history";
 
 // import ScrollToTop from "./component/scrollToTop";
 
@@ -11,7 +12,7 @@ import { AddContact } from "./views/AddContact.js";
 export const Layout = () => {
 	return (
 		<div>
-			<BrowserRouter>
+			<Router history={history}>
 				<div>
 					<Switch>
 						<Route exact path="/index.html" component={Contacts} />
@@ -22,7 +23,7 @@ export const Layout = () => {
 						<Route render={() => <h1 className="notfound">Not found!</h1>} />
 					</Switch>
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };

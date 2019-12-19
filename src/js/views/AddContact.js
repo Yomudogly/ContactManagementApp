@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const AddContact = () => {
 	const [name, setName] = useState();
+	const [email, setEmail] = useState();
+	const [phone, setPhone] = useState();
+	const [address, setAddress] = useState();
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="container">
 			<div>
@@ -19,18 +25,33 @@ export const AddContact = () => {
 					</div>
 					<div className="form-group">
 						<label>Email</label>
-						<input type="email" className="form-control" placeholder="Enter email" />
+						<input
+							onChange={e => setEmail(e.target.value)}
+							type="email"
+							className="form-control"
+							placeholder="Enter email"
+						/>
 					</div>
 					<div className="form-group">
 						<label>Phone</label>
-						<input type="phone" className="form-control" placeholder="Enter phone" />
+						<input
+							onChange={e => setPhone(e.target.value)}
+							type="phone"
+							className="form-control"
+							placeholder="Enter phone"
+						/>
 					</div>
 					<div className="form-group">
 						<label>Address</label>
-						<input type="text" className="form-control" placeholder="Enter address" />
+						<input
+							onChange={e => setAddress(e.target.value)}
+							type="text"
+							className="form-control"
+							placeholder="Enter address"
+						/>
 					</div>
 					<button
-						onClick={() => actions.addContact(name)}
+						onClick={() => actions.addContact(name, email, phone, address)}
 						type="button"
 						className="btn btn-primary form-control">
 						save
