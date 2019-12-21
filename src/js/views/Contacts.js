@@ -22,11 +22,11 @@ export const Contacts = props => {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.contacts.map(item => {
+						{store.contacts.map((item, index) => {
 							return (
 								<div key={item.id}>
 									<ContactCard
-										id={item.id}
+										index={index}
 										full_name={item.full_name}
 										address={item.address}
 										phone={item.phone}

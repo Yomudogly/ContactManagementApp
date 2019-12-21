@@ -7,7 +7,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
-			editContact: id => {
+			editContact: (id, name, email, address, phone) => {
 				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				let promis = fetch(url, {
 					method: "PUT",
