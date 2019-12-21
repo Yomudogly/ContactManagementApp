@@ -31,6 +31,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						getActions().loadContacts();
 					})
 					.then(() => {
+						alert("You did it!");
 						history.push("/contacts");
 					})
 					.catch(error =>
@@ -63,6 +64,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						getActions().loadContacts();
 					})
 					.then(() => {
+						alert("Contact was succesfully added!");
 						history.push("/contacts");
 					})
 					.catch(error =>
