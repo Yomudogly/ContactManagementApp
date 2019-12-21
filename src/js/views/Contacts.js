@@ -26,6 +26,7 @@ export const Contacts = props => {
 							return (
 								<div key={item.id}>
 									<ContactCard
+										id={item.id}
 										full_name={item.full_name}
 										address={item.address}
 										phone={item.phone}
