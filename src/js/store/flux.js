@@ -8,13 +8,12 @@ const getState = ({ getStore, setStore, getActions }) => {
 		},
 		actions: {
 			editContact: (id, name, email, address, phone) => {
-				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
+				let url = "https://contact-management-list.herokuapp.com/person/" + id;
 				let promis = fetch(url, {
 					method: "PUT",
 					body: JSON.stringify({
 						full_name: name,
 						email: email,
-						agenda_slug: "downtown_xii",
 						address: address,
 						phone: phone
 					}),
@@ -41,13 +40,12 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 
 			addContact: (name, email, phone, address) => {
-				let url = "https://assets.breatheco.de/apis/fake/contact/";
+				let url = "https://contact-management-list.herokuapp.com/person/";
 				let promis = fetch(url, {
 					method: "POST",
 					body: JSON.stringify({
 						full_name: name,
 						email: email,
-						agenda_slug: "downtown_xii",
 						address: address,
 						phone: phone
 					}),
@@ -73,16 +71,21 @@ const getState = ({ getStore, setStore, getActions }) => {
 					);
 			},
 			deleteContact: id => {
-				let url = "https://assets.breatheco.de/apis/fake/contact/" + id;
+				let url = "https://contact-management-list.herokuapp.com/person/" + id;
 				let promis = fetch(url, {
 					method: "DELETE"
 				});
-				promis.then(() => {
-					getActions().loadContacts();
-				});
+				promis
+					.then(() => {
+						getActions().loadContacts();
+					})
+					.catch(error =>
+						//error handling
+						console.log("Looks like there was a problem: \n", error)
+					);
 			},
 			loadContacts: () => {
-				let url = "https://assets.breatheco.de/apis/fake/contact/agenda/downtown_xii";
+				let url = "https://contact-management-list.herokuapp.com/people";
 				let promis = fetch(url).then(response => response.json());
 				promis
 					.then(results => {

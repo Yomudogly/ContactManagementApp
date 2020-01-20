@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 export const Contacts = props => {
 	const [state, setState] = useState({
 		showModal: false,
-		id: ""
+		id: null
 	});
 	const { store, actions } = useContext(Context);
 

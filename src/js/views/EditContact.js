@@ -9,7 +9,7 @@ export const EditContact = props => {
 	const [email, setEmail] = useState(store.contacts[props.match.params.id].email);
 	const [phone, setPhone] = useState(store.contacts[props.match.params.id].phone);
 	const [address, setAddress] = useState(store.contacts[props.match.params.id].address);
-	let id = store.contacts[props.match.params.id].id;
+	const id = store.contacts[props.match.params.id].id;
 
 	return (
 		<div className="container">

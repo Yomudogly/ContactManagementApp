@@ -58,7 +58,7 @@ Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
-	itemId: PropTypes.string
+	itemId: PropTypes.number
 };
 
 /**
