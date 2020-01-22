@@ -30,7 +30,9 @@ export const Layout = () => {
 							<Route exact path="/add" component={AddContact} />
 							<Route exact path="/edit/:id" component={EditContact} />
 							<Route
-								render={() => (<h1 className="notfound">Not found!</h1> ? <Redirect to="/" /> : null)}
+								render={() =>
+									<h1 className="notfound">Not found!</h1> ? <Redirect to="/index.html" /> : null
+								}
 							/>
 						</Switch>
 						<Footer />
