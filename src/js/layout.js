@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 // import ScrollToTop from "./component/scrollToTop";
@@ -29,7 +29,9 @@ export const Layout = () => {
 							<Route exact path="/contacts" component={Contacts} />
 							<Route exact path="/add" component={AddContact} />
 							<Route exact path="/edit/:id" component={EditContact} />
-							<Route render={() => <h1 className="notfound">Not found!</h1>} />
+							<Route
+								render={() => (<h1 className="notfound">Not found!</h1> ? <Redirect to="/" /> : null)}
+							/>
 						</Switch>
 						<Footer />
 					</ScrollToTop>
