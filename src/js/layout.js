@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import history from "./history";
 import ScrollToTop from "./component/scrollToTop";
 
@@ -21,7 +21,7 @@ export const Layout = () => {
 
 	return (
 		<div>
-			<BrowserRouter history={history} basename={process.env.BASENAME || ""}>
+			<Router history={history} basename={process.env.BASENAME || ""}>
 				<div>
 					<ScrollToTop>
 						<Switch>
@@ -35,7 +35,7 @@ export const Layout = () => {
 						<Footer />
 					</ScrollToTop>
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };
