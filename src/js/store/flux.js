@@ -1,5 +1,3 @@
-import history from "../history";
-
 const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
@@ -7,7 +5,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
-			editContact: (id, name, email, address, phone) => {
+			editContact: (id, name, email, address, phone, history) => {
 				let url = "https://contact-management-list.herokuapp.com/person/" + id;
 				let promis = fetch(url, {
 					method: "PUT",
@@ -39,7 +37,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					);
 			},
 
-			addContact: (name, email, phone, address) => {
+			addContact: (name, email, phone, address, history) => {
 				let url = "https://contact-management-list.herokuapp.com/person/";
 				let promis = fetch(url, {
 					method: "POST",

@@ -53,7 +53,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<button
-						onClick={() => actions.editContact(id, name, email, address, phone)}
+						onClick={() => actions.editContact(id, name, email, address, phone, props.history)}
 						type="button"
 						className="btn btn-primary form-control">
 						save
@@ -68,5 +68,6 @@ export const EditContact = props => {
 };
 
 EditContact.propTypes = {
-	match: PropTypes.object
+	match: PropTypes.object,
+	history: PropTypes.object
 };

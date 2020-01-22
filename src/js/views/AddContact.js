@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const AddContact = () => {
+export const AddContact = ({ history }) => {
 	const [name, setName] = useState();
 	const [email, setEmail] = useState();
 	const [phone, setPhone] = useState();
@@ -51,7 +52,7 @@ export const AddContact = () => {
 						/>
 					</div>
 					<button
-						onClick={() => actions.addContact(name, email, phone, address)}
+						onClick={() => actions.addContact(name, email, phone, address, history)}
 						type="button"
 						className="btn btn-primary form-control">
 						save
@@ -63,4 +64,8 @@ export const AddContact = () => {
 			</div>
 		</div>
 	);
+};
+
+AddContact.propTypes = {
+	history: PropTypes.object
 };
