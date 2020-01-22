@@ -21,7 +21,7 @@ export const Layout = () => {
 
 	return (
 		<div>
-			<Router history={history}>
+			<Router history={history} basename={basename}>
 				<div>
 					<ScrollToTop>
 						<Switch>
